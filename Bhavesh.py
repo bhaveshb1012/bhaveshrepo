@@ -1,3 +1,2 @@
-print("My name is Bhavesh Bhadiyadra")
-print("My Name is Bhavesh Patel")
-print("Hello Bhavesh")
+name = input("Your Name")
+print(f"Hello, {name}! Nice to meet you!")
