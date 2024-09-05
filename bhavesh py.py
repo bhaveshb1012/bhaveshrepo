@@ -1,6 +1,3 @@
-# Asking for user's name
-name = input("What is your name? ")
-
-# Greeting the user by their name
+name = input(" name ")
 print(f"Hello, {name}! Nice to meet you!")
 
