@@ -1,3 +1,3 @@
-name = input(" name ")
-print(f"Hello, {name}! Nice to meet you!")
+list1 = ["Bhavesh," "Darshana," "Sneha," "Avnish," "Gayarti," "Priyanka,"]
+print(list1)
 
