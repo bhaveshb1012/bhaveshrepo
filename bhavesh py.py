@@ -47,3 +47,49 @@ code_3_digit = [random.randint(0, 9) for _ in range(3)]
 code_4_digit = [random.randint(1, 6) for _ in range(4)]
 print(f"3-digit lock code: {''.join(map(str, code_3_digit))}")
 print(f"4-digit lock code: {''.join(map(str, code_4_digit))}")
+
+SIZE_LIMIT = 42
+zander_length = float(input("Enter the length of the zander in centimeters: "))
+if zander_length < SIZE_LIMIT:
+    difference = SIZE_LIMIT - zander_length
+    print(f"The zander is too small and must be released back into the lake. It is {difference:.2f} cm below the size limit.")
+else:
+    print("The zander meets the size limit. You can keep it!")
+
+cabin_class = input("Enter the cabin class (LUX, A, B, C): ").upper()
+if cabin_class == "LUX":
+    print("LUX: upper-deck cabin with a balcony.")
+elif cabin_class == "A":
+    print("A: above the car deck, equipped with a window.")
+elif cabin_class == "B":
+    print("B: windowless cabin above the car deck.")
+elif cabin_class == "C":
+    print("C: windowless cabin below the car deck.")
+else:
+    print("Invalid cabin class.")
+
+gender = input("Enter your biological gender (male/female): ").lower()
+hemoglobin_value = float(input("Enter your hemoglobin value (g/l): "))
+
+if gender == "female":
+    if hemoglobin_value < 117:
+        print("Your hemoglobin level is low.")
+    elif 117 <= hemoglobin_value <= 155:
+        print("Your hemoglobin level is normal.")
+    else:
+        print("Your hemoglobin level is high.")
+elif gender == "male":
+    if hemoglobin_value < 134:
+        print("Your hemoglobin level is low.")
+    elif 134 <= hemoglobin_value <= 167:
+        print("Your hemoglobin level is normal.")
+    else:
+        print("Your hemoglobin level is high.")
+else:
+    print("Invalid gender entered. Please enter either 'male' or 'female'.")
+
+year = int(input("Enter a year: "))
+if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+    print(f"{year} is a leap year.")
+else:
+    print(f"{year} is not a leap year.")
