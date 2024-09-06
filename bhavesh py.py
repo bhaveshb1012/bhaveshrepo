@@ -26,3 +26,18 @@ average_of_numbers = sum_of_numbers / 3
 print(f"The sum of the numbers is: {sum_of_numbers}")
 print(f"The product of the numbers is: {product_of_numbers}")
 print(f"The average of the numbers is: {average_of_numbers:.2f}")
+
+LOT_TO_GRAMS = 13.3
+POUND_TO_LOTS = 32
+TALENT_TO_POUNDS = 20
+
+talents = int(input("Enter the number of talents: "))
+pounds = int(input("Enter the number of pounds: "))
+lots = int(input("Enter the number of lots: "))
+
+total_lots = (talents * TALENT_TO_POUNDS * POUND_TO_LOTS) + (pounds * POUND_TO_LOTS) + lots
+total_grams = total_lots * LOT_TO_GRAMS
+
+kilograms = int(total_grams // 1000)
+grams = total_grams % 1000
+print(f"The total weight is {kilograms} kilograms and {grams:.2f} grams.")
