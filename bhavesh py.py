@@ -41,3 +41,9 @@ total_grams = total_lots * LOT_TO_GRAMS
 kilograms = int(total_grams // 1000)
 grams = total_grams % 1000
 print(f"The total weight is {kilograms} kilograms and {grams:.2f} grams.")
+
+import random
+code_3_digit = [random.randint(0, 9) for _ in range(3)]
+code_4_digit = [random.randint(1, 6) for _ in range(4)]
+print(f"3-digit lock code: {''.join(map(str, code_3_digit))}")
+print(f"4-digit lock code: {''.join(map(str, code_4_digit))}")
