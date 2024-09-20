@@ -127,12 +127,3 @@ while command!= "stop":
 else:
     print("Goodbye.")
 print("Execution stopped."'''
-
-
-
-
-
-
-
-
-
