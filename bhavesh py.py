@@ -1,129 +1,91 @@
-'''def greet():
-    print("Hello Bhavesh!")
-    return
-print("A new day starts with a greeting.")
-greet()
-print("Now we can move to other business.")
-'''
-'''def greet(times):
-    for i in range(times):
-        print("Round " + str(i+1) + " of saying hello.")
-    return
-print("A new day starts with a greeting.")
-greet(5)
-print("Let's greet some more")
-greet(2)'''
+'''num = 1
+while num <= 1000:
+    if num % 3 == 0:
+        print(num)
+    num += 1'''
 
-'''def change():
-    city = "Vantaa"
-    print("At the end of the function: " + city)
-    return
-city = "Helsinki"
-print("At the beginning in the main program: " + city)
-change()
-print("At the end of the main program: " + city)'''
 
-'''def sum_of_squares(first, second):
-    result = first**2 + second**2
-    return result
-number1 = float(input("Enter the first number: "))
-number2 = float(input("Enter the second number: "))
-result = sum_of_squares(number1, number2)
-print(f"The sum of squares for numbers{number1:.3f} and {number2:.3f} is {result:.3f}.")'''
-
-'''def inventory(items):
-    print("You have the following items:")
-    for item in items:
-        print("- " + item)
-    return
-
-backpack = ["Water bottle", "Map", "Compass"]
-inventory(backpack)
-backpack.append("Swiss Army knife")
-inventory(backpack)'''
-
-'''def inventory(items):
-    print("You have the following items:")
-    for item in items:
-        print("- " + item)
-    items.clear()
-    return
-
-backpack = ["Water bottle", "Map", "Compass"]
-inventory(backpack)
-backpack.append("Swiss Army knife")
-inventory(backpack)'''
-
-'''rounds = int(input("How many Greetings: "))
-finished_rounds = 0
-while finished_rounds<rounds:
-    print("Good Morning")
-    finished_rounds = finished_rounds + 1'''
-
-'''username = input("Enter your name: ")
-while username != "Stop":
-    print("Welcome, " + username)
-    username = input("Enter your name: ")'''
-
-'''number = 1
-while number<5:
-    print(number)
-print("All ready.")'''
-
-'''import random
-dice1 = dice2 = rolls = 0
-while (dice1!=6 and dice2!=6):
-    dice1 = random.randint(1,6)
-    dice2 = random.randint(1,6)
-    rolls = rolls + 1
-print(f"Rolled {rolls:d} times.")'''
-
-'''import random
-dice1 = dice2 = rolls = 0
-while (dice1!=6 or dice2!=6):
-    dice1 = random.randint(1,6)
-    dice2 = random.randint(1,6)
-    rolls = rolls + 1
-print(f"Rolled {rolls:d} times.")'''
-
-'''import random
-rounds = 0
-total_rolls = 0
-
-while rounds < 10000:
-    dice1 = dice2 = rolls = 0
-    while (dice1!=6 or dice2!=6):
-        dice1 = random.randint(1,6)
-        dice2 = random.randint(1,6)
-        rolls = rolls + 1
-    print(f"Rolled {rolls:d} times.")
-    rounds = rounds + 1
-    total_rolls = total_rolls + rolls
-average_rolls = total_rolls/rounds
-print(f"Average rolls required: {average_rolls:6.2f}")'''
-
-'''first = 1
-while first <= 5:
-    second = 1
-    while second <= 5:
-        print(f"{first} times {second} is {first*second}")
-        second = second + 1
-    first = first + 1'''
-
-'''command = input("Enter a command: ")
-while command!= "stop":
-    if command == "MAYDAY":
+'''INCH_TO_CM = 2.54
+while True:
+    inches = float(input("Enter a value in inches (negative to quit): "))
+    if inches < 0:
+        print("Negative value entered.")
         break
-    print("Execution command: " + command)
-    command = input("Enter command: ")
-print("Execution stopped.")'''
+    centimeters = inches * INCH_TO_CM
+    print(f"{inches} inches is equal to {centimeters} centimeters.")'''
 
-'''command = input("Enter a command: ")
-while command!= "stop":
-    if command == "MAYDAY":
+'''numbers = []
+while True:
+    user_input = input("Enter a number (or press Enter to quit): ")
+    if user_input == "":
         break
-    print("Executoin command: " + command)
-    command = input("Enter command: ")
+    try:
+
+        number = float(user_input)
+        numbers.append(number)
+    except ValueError:
+
+        print("Invalid input. Please enter a valid number.")
+if numbers:
+    smallest = min(numbers)
+    largest = max(numbers)
+
+    print(f"The smallest number entered is: {smallest}")
+    print(f"The largest number entered is: {largest}")
 else:
-    print("Goodbye.")
-print("Execution stopped."'''
+    print("No numbers were entered.")'''
+'''
+import random
+secret_number = random.randint(1, 10)
+while True:
+    user_guess = input("Guess the number (between 1 and 10): ")
+    try:
+
+        guess = int(user_guess)
+
+        if guess < secret_number:
+            print("Too low!")
+        elif guess > secret_number:
+            print("Too high!")
+        else:
+            print("Correct! You guessed the number.")
+            break
+    except ValueError:
+
+        print("Please enter a valid number.")'''
+'''
+correct_username = "Bhavesh Bhadiyadra"
+correct_password = "Bhavesh_Bhadiyadra@1"
+attempts = 0
+max_attempts = 5
+while attempts < max_attempts:
+
+    username = input("Enter username: ")
+    password = input("Enter password: ")
+    if username == correct_username and password == correct_password:
+        print("Welcome!")
+        break
+    else:
+        attempts += 1
+        print("Incorrect username or password.")
+        if attempts < max_attempts:
+            print(f"Attempts remaining: {max_attempts - attempts}")
+if attempts == max_attempts:
+    print("Access denied.")'''
+
+'''
+import random
+def approximate_pi(num_points):
+    points_inside_circle = 0
+    for _ in range(num_points):
+        x = random.uniform(-1, 1)
+        y = random.uniform(-1, 1)
+
+        if x**2 + y**2 < 1:
+            points_inside_circle += 1
+    pi_approximation = 4 * (points_inside_circle / num_points)
+    return pi_approximation
+num_points = int(input("Enter the number of random points to generate: "))
+pi_value = approximate_pi(num_points)
+print(f"Approximate value of pi after {num_points} points: {pi_value}")'''
+
