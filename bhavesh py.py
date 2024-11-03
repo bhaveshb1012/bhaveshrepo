@@ -1,257 +1,71 @@
-'''class Car:
-    def __init__(self, registration_number, max_speed):
-        self.registration_number = registration_number
-        self.max_speed = max_speed
-        self.current_speed = 130
-        self.travelled_distance = 500
-
-    def __str__(self):
-        return (f"Registration Number: {self.registration_number}\n"
-                f"Maximum Speed: {self.max_speed} km/h\n"
-                f"Current Speed: {self.current_speed} km/h\n"
-                f"Travelled Distance: {self.travelled_distance} km")
-
-car = Car("GMO-549", 140)
-print(car)'''
-
-'''class Car:
-    def __init__(self, registration_number, max_speed):
-
-        self.registration_number = registration_number
-        self.max_speed = max_speed
-
-        self.current_speed = 0
-        self.travelled_distance = 0
-
-    def accelerate(self, speed_change):
-
-        self.current_speed += speed_change
-
-
-        if self.current_speed > self.max_speed:
-            self.current_speed = self.max_speed
-        elif self.current_speed < 0:
-            self.current_speed = 0
-
-    def print_details(self):
-
-        print(f"Registration Number: {self.registration_number}")
-        print(f"Maximum Speed: {self.max_speed} km/h")
-        print(f"Current Speed: {self.current_speed} km/h")
-        print(f"Travelled Distance: {self.travelled_distance} km")
-
-car = Car("GMO-549", 140)
-car.accelerate(30)
-car.print_details()
-car.accelerate(70)
-car.print_details()
-car.accelerate(50)
-car.print_details()
-car.accelerate(-200)
-car.print_details()'''
-
-'''class Car:
-    def __init__(self, registration_number, max_speed):
-
-        self.registration_number = registration_number
-        self.max_speed = max_speed
-
-        self.current_speed = 0
-        self.travelled_distance = 0
-
-    def accelerate(self, speed_change):
-
-        self.current_speed += speed_change
-
-        if self.current_speed < 0:
-            self.current_speed = 0
-
-        elif self.current_speed > self.max_speed:
-            self.current_speed = self.max_speed
-
-    def drive(self, hours):
-
-        self.travelled_distance += self.current_speed * hours
-
-    def print_details(self):
-
-        print(f"Registration Number: {self.registration_number}")
-        print(f"Maximum Speed: {self.max_speed} km/h")
-        print(f"Current Speed: {self.current_speed} km/h")
-        print(f"Travelled Distance: {self.travelled_distance} km")
-
-car = Car("GMO-549", 142)
-car.accelerate(30)
-car.print_details()
-car.drive(1.5)
-car.print_details()
-car.accelerate(70)
-car.print_details()
-car.drive(2)
-car.print_details()
-car.accelerate(-200)
-car.print_details()'''
-
-
-'''import random
-
-class Car:
-    def __init__(self, registration_number, max_speed):
-
-        self.registration_number = registration_number
-        self.max_speed = max_speed
-
-        self.current_speed = 0
-        self.travelled_distance = 0
-
-    def accelerate(self, speed_change):
-
-        self.current_speed += speed_change
-
-        if self.current_speed < 0:
-            self.current_speed = 0
-
-        elif self.current_speed > self.max_speed:
-            self.current_speed = self.max_speed
-
-    def drive(self, hours):
-
-        self.travelled_distance += self.current_speed * hours
-
-    def print_details(self):
-
-        print(f"{self.registration_number:<10} {self.max_speed:<15} {self.current_speed:<15} {self.travelled_distance:<15.1f}")
-
-cars = []
-for i in range(1, 11):
-
-    registration_number = f"RAM-{i}"
-
-    max_speed = random.randint(100, 200)
-
-    car = Car(registration_number, max_speed)
-    cars.append(car)
-
-race_finished = False
-while not race_finished:
-    for car in cars:
-
-        speed_change = random.randint(-10, 15)
-        car.accelerate(speed_change)
-
-        car.drive(1)
-
-        if car.travelled_distance >= 10000:
-            race_finished = True
-            break
-
-print(f"\n{'Registration':<10} {'Max Speed (km/h)':<15} {'Current Speed (km/h)':<15} {'Travelled Distance (km)':<20}")
-print("=" * 60)
-for car in cars:
-    car.print_details()'''
-
-
-'''class InsufficientBalanceError(Exception):
-   
-    pass
-
-class NegativeValueError(Exception):
-   
-    pass
-
-def get_float_input(prompt):
-    
-    while True:
-        try:
-            value = float(input(prompt))
-            return value
-        except ValueError:
-            print("Invalid input. Please enter a numeric value.")
-
-def main():
-    try:
-
-        balance = get_float_input("Enter account balance: ")
-        withdrawal = get_float_input("Enter withdrawal amount: ")
-
-        if balance < 0 or withdrawal < 0:
-            raise NegativeValueError("Balance and withdrawal amount must be non-negative.")
-
-        if withdrawal > balance:
-            raise InsufficientBalanceError("Withdrawal amount exceeds the account balance.")
-
-
-        balance -= withdrawal
-        print(f"Withdrawal successful. Remaining balance: ${balance:.2f}")
-
-    except InsufficientBalanceError as e:
-        print(f"Error: {e}")
-    except NegativeValueError as e:
-        print(f"Error: {e}")
-
-if __name__ == "__main__":
-    main()'''
-
-'''def write_notes(filename):
-
-    with open(filename, 'w') as file:
-        print("Enter your new notes. Type 'STOP' to end.")
-        while True:
-            note = input("New Note: ")
-            if note.upper() == "STOP":
-                break
-            file.write(note + "\n")
-        print(f"New notes have been written to {filename}.")
-
-def read_notes(filename):
-
-    try:
-        with open(filename, 'r') as file:
-            notes = file.readlines()
-            if notes:
-                print(f"\nExisting notes in {filename}:")
-                for line in notes:
-                    print(line.strip())
-            else:
-                print(f"No notes found in {filename}.")
-    except FileNotFoundError:
-        print(f"{filename} does not exist. Please write new notes first.")
-
-def append_notes(filename):
-
-    with open(filename, 'a') as file:
-        print("Enter additional notes to append. Type 'STOP' to end.")
-        while True:
-            note = input("Additional Note: ")
-            if note.upper() == "STOP":
-                break
-            file.write(note + "\n")
-        print(f"Additional notes have been appended to {filename}.")
-
-def main():
-    filename = "notes.txt"  # File to store notes
-
-    while True:
-        print("\nChoose an option:")
-        print("1. Write new notes (this will overwrite existing notes)")
-        print("2. Read existing notes")
-        print("3. Append additional notes")
-        print("4. Exit")
-
-        choice = input("Enter your choice (1/2/3/4): ")
-
-        if choice == '1':
-            write_notes(filename)
-        elif choice == '2':
-            read_notes(filename)
-        elif choice == '3':
-            append_notes(filename)
-        elif choice == '4':
-            print("Exiting the program.")
-            break
-        else:
-            print("Invalid choice. Please enter 1, 2, 3, or 4.")
-
-if __name__ == "__main__":
-    main()'''
+'''import matplotlib.pyplot as plt
+import numpy as np
+x = np.linspace(-10, 10, 400)
+y1 = 2 * x + 1
+y2 = 2 * x + 2
+y3 = 2 * x + 3
+plt.figure(figsize=(8, 6))
+plt.plot(x, y1, color='black', linestyle='-', label='y = 2x + 1')
+plt.plot(x, y2, color='grey', linestyle='--', label='y = 2x + 2')
+plt.plot(x, y3, color='silver', linestyle=':', label='y = 2x + 3')
+plt.title("Graphs of y = 2x + 1, y = 2x + 2, and y = 2x + 3")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.legend()
+plt.grid(True)
+plt.show()'''
+
+
+'''import matplotlib.pyplot as plt
+import numpy as np
+x = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+y = np.array([-0.57, -2.57, -4.80, -7.36, -8.78, -10.52, -12.85, -14.69, -16.78])
+plt.figure(figsize=(8, 6))
+plt.scatter(x, y, color='black', marker='+')
+plt.title("Scatter Plot of Points (x, y)")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.grid(True)
+plt.show()'''
+
+'''import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = pd.read_csv("weight-height.csv")
+
+height_inches = data['Height']
+weight_pounds = data['Weight']
+
+height_cm = height_inches * 2.54
+
+weight_kg = weight_pounds * 0.453592
+
+mean_height_cm = np.mean(height_cm)
+mean_weight_kg = np.mean(weight_kg)
+
+print(f"Mean Height (cm): {mean_height_cm}")
+print(f"Mean Weight (kg): {mean_weight_kg}")
+
+plt.figure(figsize=(8, 5))
+plt.hist(height_cm, bins=20, color="skyblue", edgecolor="black")
+plt.title("Histogram of Heights (in cm)")
+plt.xlabel("Height (cm)")
+plt.ylabel("Frequency")
+plt.grid(True)
+plt.show()'''
+
+'''import numpy as np
+A = np.array([
+    [4, 7],
+    [2, 6]
+])
+A_inv = np.linalg.inv(A)
+I1 = np.dot(A, A_inv)
+I2 = np.dot(A_inv, A)
+print("A * A_inv:\n", I1)
+print("A_inv * A:\n", I2)
+identity_matrix = np.eye(A.shape[0])
+print("\nIs A * A_inv close to identity? ", np.allclose(I1, identity_matrix))
+print("Is A_inv * A close to identity? ", np.allclose(I2, identity_matrix))'''
 
